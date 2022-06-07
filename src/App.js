@@ -39,7 +39,7 @@ function App() {
           }
         </Button>
         </Box>
-        <Flex flex={"1"} flexDirection={"row"} mt={"30px"} >
+        <Flex flex={"1"} flexDirection={"row"} mt={"30px"} mb={"10px"} >
             <Box flex={"1"} flexDirection={"column"} alignItems={"center"} padding={"50px"} height={"100vh"} width={"50vw"} bgColor={"white"} >
               <CreateAgmt/>
               <MyAgmt/>

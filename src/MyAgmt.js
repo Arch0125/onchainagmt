@@ -35,16 +35,19 @@ const MyAgmt =()=>{
         setAgmts([]);
         for(let i =1;i<=parselist;i++){
             var agmt = await AgmtInterface.getAgreements(i);
-            setAgmts((agmts)=>[...agmts,agmt])
+            if(JSON.stringify(agmt.lender) === JSON.stringify(account)){
+                setAgmts((agmts)=>[...agmts,agmt])
+            }
         }
         console.log(agmts)
     }
 
     return(
-        <Box mt={"30px"} textAlign={"center"} padding={"20px"} borderColor={"blueviolet"} bgColor={"white"} borderWidth={"2px"} rounded={"2xl"} width={"97%"} height={"fit-content"} >
+        <Box mb={"10px"} mt={"30px"} textAlign={"center"} padding={"20px"} borderColor={"blueviolet"} bgColor={"white"} borderWidth={"2px"} rounded={"2xl"} width={"97%"} height={"fit-content"} >
             <Text  fontSize={"20px"} color={"blueviolet"} fontWeight={"bold"} >My Agreements</Text>
             <Divider/>
             <Button mt={"15px"} colorScheme={"purple"} variant={"solid"} onClick={showAgmt} >Refresh List</Button>
+            <Box overflowY={"scroll"}  height={"fit-content"} maxheight={"200px"} >
             {
                  Object.keys(agmts).map((agmt, index) => (
                     <Flex flex={"1"} flexDirection={"row"} width={"100%"} height={"fit-content"} padding={"20px"} bgColor={"gray.50"} mt={"15px"} rounded={"2xl"} borderWidth={"1.5px"} borderColor={"gray.100"} >
@@ -59,6 +62,7 @@ const MyAgmt =()=>{
                     </Flex>
                  ))
             }
+            </Box>
         </Box>
     )
 }
