@@ -1,5 +1,38 @@
 const contractABI =[
 	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "_tenant",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "amount",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "_duration",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_productid",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_document",
+				"type": "string"
+			}
+		],
+		"name": "addAgreement",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
 		"anonymous": false,
 		"inputs": [
 			{
@@ -64,32 +97,12 @@ const contractABI =[
 	{
 		"inputs": [
 			{
-				"internalType": "address",
-				"name": "_tenant",
-				"type": "address"
-			},
-			{
 				"internalType": "uint256",
-				"name": "amount",
+				"name": "key",
 				"type": "uint256"
-			},
-			{
-				"internalType": "string",
-				"name": "_duration",
-				"type": "string"
-			},
-			{
-				"internalType": "string",
-				"name": "_productid",
-				"type": "string"
-			},
-			{
-				"internalType": "string",
-				"name": "_document",
-				"type": "string"
 			}
 		],
-		"name": "addAgreement",
+		"name": "signAgreement",
 		"outputs": [],
 		"stateMutability": "nonpayable",
 		"type": "function"
@@ -200,16 +213,16 @@ const contractABI =[
 		"type": "function"
 	},
 	{
-		"inputs": [
+		"inputs": [],
+		"name": "getCount",
+		"outputs": [
 			{
 				"internalType": "uint256",
-				"name": "key",
+				"name": "",
 				"type": "uint256"
 			}
 		],
-		"name": "signAgreement",
-		"outputs": [],
-		"stateMutability": "nonpayable",
+		"stateMutability": "view",
 		"type": "function"
 	}
 ]

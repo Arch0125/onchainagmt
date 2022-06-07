@@ -4,6 +4,7 @@ import { ethers } from 'ethers';
 import { useEffect, useState } from 'react';
 import { Box, Button, Divider, Flex, Text } from '@chakra-ui/react';
 import CreateAgmt from './CreateAgmt';
+import MyAgmt from './MyAgmt';
 
 function App() {
 
@@ -41,6 +42,7 @@ function App() {
         <Flex flex={"1"} flexDirection={"row"} mt={"30px"} >
             <Box flex={"1"} flexDirection={"column"} alignItems={"center"} padding={"50px"} height={"100vh"} width={"50vw"} bgColor={"white"} >
               <CreateAgmt/>
+              <MyAgmt/>
             </Box>
             <Box height={"100vh"} width={"50vw"} bgColor={"blue"}>
 

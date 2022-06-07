@@ -31,7 +31,7 @@ const CreateAgmt=()=>{
         setSigner(signer);
     }
     
-    const AgmtInterface = new ethers.Contract('0xA5f6E9686c2AC3EDf7628179901462c875EC5281',contractABI,signer);     
+    const AgmtInterface = new ethers.Contract('0xef8d70E08943c4081A84f522686052fAed287809',contractABI,signer);     
     
     const addAgmt=()=>{
         AgmtInterface.addAgreement(tenant,amount,duration,productid,ipfshash);
