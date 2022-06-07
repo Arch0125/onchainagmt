@@ -63,7 +63,7 @@ const CreateAgmt=()=>{
 
             <InputGroup mt={"10px"} >
             <InputLeftAddon children='Document IPFS Hash' />
-            <Input onChange={(e)=>setIpfshash(e.target.value)} placeholder='' color={"blackAlpha.600"} borderColor={"blackAlpha.200"} />
+            <Input onChange={(e)=>setIpfshash(e.target.value)} placeholder='Copy the link from Document Upload modal' color={"blackAlpha.600"} borderColor={"blackAlpha.200"} />
             </InputGroup>
 
             <Button onClick={addAgmt} mt={"20px"} colorScheme={"purple"} >Create Agreement</Button>
