@@ -6,6 +6,7 @@ import { Box, Button, Divider, Flex, Text } from '@chakra-ui/react';
 import CreateAgmt from './CreateAgmt';
 import MyAgmt from './MyAgmt';
 import SignAgmt from './SignAgmt';
+import IPFSUpload from './IPFSUpload';
 
 function App() {
 
@@ -46,6 +47,7 @@ function App() {
               <MyAgmt/>
             </Box>
             <Box padding={"20px"} height={"100vh"} width={"50vw"} bgColor={"white"}>
+              <IPFSUpload/>
               <SignAgmt/>
             </Box>
         </Flex>

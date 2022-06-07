@@ -56,7 +56,7 @@ const SignAgmt =()=>{
             {
                 Object.keys(agmts).map((agmt, index) => (
                     <Flex flex={"1"} flexDirection={"row"} width={"100%"} height={"fit-content"} padding={"20px"} bgColor={"gray.50"} mt={"15px"} rounded={"2xl"} borderWidth={"1.5px"} borderColor={"gray.100"} >
-                        <Text>Transaction ID #{(agmts[index].agmtid).toString()}</Text>
+                        <Text>Agreement ID #{(agmts[index].agmtid).toString()}</Text>
                         <Box width={"50%"}>
                             <Text>Lender : {(agmts[index].lender).substring(0,7)}</Text>
                             <Text>Amount : {agmts[index].duration}</Text>
