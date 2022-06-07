@@ -52,7 +52,7 @@ const SignAgmt =()=>{
         <Box  mb={"10px"} mt={"30px"} textAlign={"center"} padding={"20px"} borderColor={"blueviolet"} bgColor={"white"} borderWidth={"2px"} rounded={"2xl"} width={"97%"} height={"fit-content"} >
             <Text fontSize={"20px"} color={"blueviolet"} fontWeight={"bold"}>Agreements to Signed</Text>
             <Divider/>
-            <Button onClick={showAgmt} >Refresh List</Button>
+            <Button variant={"solid"} colorScheme={"purple"} mt={"15px"} onClick={showAgmt} >Refresh List</Button>
             {
                 Object.keys(agmts).map((agmt, index) => (
                     <Flex flex={"1"} flexDirection={"row"} width={"100%"} height={"fit-content"} padding={"20px"} bgColor={"gray.50"} mt={"15px"} rounded={"2xl"} borderWidth={"1.5px"} borderColor={"gray.100"} >
