@@ -1,11 +1,11 @@
-import { Flex,Box, Text, Divider } from '@chakra-ui/react';
+import { Box, Button, Divider, Text } from '@chakra-ui/react';
 import React from 'react';
-import contractABI from './component/ContractABI';
 import { ethers } from 'ethers';
+import contractABI from './component/ContractABI';
 import { useState,useEffect } from 'react';
-import { Button } from '@chakra-ui/react';
+import { Flex } from '@chakra-ui/react';
 
-const MyAgmt =()=>{
+const SignAgmt =()=>{
 
     const[account,setAccount]=useState('');
     const[provider,setProvider]=useState('');
@@ -14,6 +14,7 @@ const MyAgmt =()=>{
 
     useEffect(()=>{
         connectWallet();
+        showAgmt();
     },[])
 
     const connectWallet = async() =>{
@@ -35,43 +36,40 @@ const MyAgmt =()=>{
         setAgmts([]);
         for(let i =1;i<=parselist;i++){
             var agmt = await AgmtInterface.getAgreements(i);
-            if(JSON.stringify(agmt.lender) === JSON.stringify(account)){
+            console.log(agmt.status)
+            if((JSON.stringify(agmt.tenant) === JSON.stringify(account))&&(agmt.status != 'Signed')){
                 setAgmts((agmts)=>[...agmts,agmt])
             }
         }
         console.log(agmts)
     }
 
+    const signAgmt=async(index)=>{
+       await AgmtInterface.signAgreement(index);
+    }
+
     return(
-        <Box mb={"10px"} mt={"30px"} textAlign={"center"} padding={"20px"} borderColor={"blueviolet"} bgColor={"white"} borderWidth={"2px"} rounded={"2xl"} width={"97%"} height={"fit-content"} >
-            <Text  fontSize={"20px"} color={"blueviolet"} fontWeight={"bold"} >My Agreements</Text>
+        <Box  mb={"10px"} mt={"30px"} textAlign={"center"} padding={"20px"} borderColor={"blueviolet"} bgColor={"white"} borderWidth={"2px"} rounded={"2xl"} width={"97%"} height={"fit-content"} >
+            <Text fontSize={"20px"} color={"blueviolet"} fontWeight={"bold"}>Agreements to Signed</Text>
             <Divider/>
-            <Button mt={"15px"} colorScheme={"purple"} variant={"solid"} onClick={showAgmt} >Refresh List</Button>
-            <Box overflowY={"scroll"}  height={"fit-content"} maxheight={"200px"} >
-               
+            <Button onClick={showAgmt} >Refresh List</Button>
             {
-                 Object.keys(agmts).map((agmt, index) => (
-                     
+                Object.keys(agmts).map((agmt, index) => (
                     <Flex flex={"1"} flexDirection={"row"} width={"100%"} height={"fit-content"} padding={"20px"} bgColor={"gray.50"} mt={"15px"} rounded={"2xl"} borderWidth={"1.5px"} borderColor={"gray.100"} >
-                        
-                        <Text>Agreement ID#{(agmts[index].agmtid).toString()}</Text>
+                        <Text>Transaction ID #{(agmts[index].agmtid).toString()}</Text>
                         <Box width={"50%"}>
-                            <Text>Tenant : {(agmts[index].tenant).substring(0,7)}</Text>
+                            <Text>Lender : {(agmts[index].lender).substring(0,7)}</Text>
                             <Text>Amount : {agmts[index].duration}</Text>
-                            <Text>Product ID : {agmts[index].productid}</Text>
                         </Box>
                         <Box  >
                         <Text>Duration : {(agmts[index].duration)}</Text>
-                        <Text>Status : {agmts[index].status}</Text>
-                        <Text>View Documents</Text>
+                        <Button onClick={() => signAgmt((agmts[index].agmtid).toString())} variant={"solid"} colorScheme={"purple"} mt={'5px'} >Sign Agreement</Button>
                         </Box>
-                        
                     </Flex>
-                 ))
+                ))
             }
-            </Box>
         </Box>
     )
 }
 
-export default MyAgmt
+export default SignAgmt

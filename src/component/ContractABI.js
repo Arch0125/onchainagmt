@@ -7,9 +7,9 @@ const contractABI =[
 				"type": "address"
 			},
 			{
-				"internalType": "uint256",
-				"name": "amount",
-				"type": "uint256"
+				"internalType": "string",
+				"name": "_amount",
+				"type": "string"
 			},
 			{
 				"internalType": "string",
@@ -37,6 +37,12 @@ const contractABI =[
 		"inputs": [
 			{
 				"indexed": false,
+				"internalType": "uint256",
+				"name": "agmtid",
+				"type": "uint256"
+			},
+			{
+				"indexed": false,
 				"internalType": "address",
 				"name": "lender",
 				"type": "address"
@@ -49,9 +55,9 @@ const contractABI =[
 			},
 			{
 				"indexed": false,
-				"internalType": "uint256",
+				"internalType": "string",
 				"name": "amount",
-				"type": "uint256"
+				"type": "string"
 			},
 			{
 				"indexed": false,
@@ -118,6 +124,11 @@ const contractABI =[
 		"name": "agreements",
 		"outputs": [
 			{
+				"internalType": "uint256",
+				"name": "agmtid",
+				"type": "uint256"
+			},
+			{
 				"internalType": "address",
 				"name": "lender",
 				"type": "address"
@@ -128,9 +139,9 @@ const contractABI =[
 				"type": "address"
 			},
 			{
-				"internalType": "uint256",
+				"internalType": "string",
 				"name": "amount",
-				"type": "uint256"
+				"type": "string"
 			},
 			{
 				"internalType": "string",
@@ -169,6 +180,11 @@ const contractABI =[
 			{
 				"components": [
 					{
+						"internalType": "uint256",
+						"name": "agmtid",
+						"type": "uint256"
+					},
+					{
 						"internalType": "address",
 						"name": "lender",
 						"type": "address"
@@ -179,9 +195,9 @@ const contractABI =[
 						"type": "address"
 					},
 					{
-						"internalType": "uint256",
+						"internalType": "string",
 						"name": "amount",
-						"type": "uint256"
+						"type": "string"
 					},
 					{
 						"internalType": "string",

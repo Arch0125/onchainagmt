@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import { Box, Button, Divider, Flex, Text } from '@chakra-ui/react';
 import CreateAgmt from './CreateAgmt';
 import MyAgmt from './MyAgmt';
+import SignAgmt from './SignAgmt';
 
 function App() {
 
@@ -44,8 +45,8 @@ function App() {
               <CreateAgmt/>
               <MyAgmt/>
             </Box>
-            <Box height={"100vh"} width={"50vw"} bgColor={"blue"}>
-
+            <Box padding={"20px"} height={"100vh"} width={"50vw"} bgColor={"white"}>
+              <SignAgmt/>
             </Box>
         </Flex>
     </Flex>
