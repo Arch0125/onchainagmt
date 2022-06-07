@@ -1,4 +1,4 @@
-import { Flex,Box, Text, Divider } from '@chakra-ui/react';
+import { Flex,Box, Text, Divider, Link } from '@chakra-ui/react';
 import React from 'react';
 import contractABI from './component/ContractABI';
 import { ethers } from 'ethers';
@@ -14,6 +14,7 @@ const MyAgmt =()=>{
 
     useEffect(()=>{
         connectWallet();
+        showAgmt();
     },[])
 
     const connectWallet = async() =>{
@@ -63,7 +64,7 @@ const MyAgmt =()=>{
                         <Box  >
                         <Text>Duration : {(agmts[index].duration)}</Text>
                         <Text>Status : {agmts[index].status}</Text>
-                        <Text>View Documents</Text>
+                        <Link href={agmts[index].document} isExternal>View Document</Link>
                         </Box>
                         
                     </Flex>

@@ -1,4 +1,4 @@
-import { Box, Button, Divider, Text } from '@chakra-ui/react';
+import { Box, Button, Divider, Link, Text } from '@chakra-ui/react';
 import React from 'react';
 import { ethers } from 'ethers';
 import contractABI from './component/ContractABI';
@@ -60,6 +60,7 @@ const SignAgmt =()=>{
                         <Box width={"50%"}>
                             <Text>Lender : {(agmts[index].lender).substring(0,7)}</Text>
                             <Text>Amount : {agmts[index].duration}</Text>
+                            <Link isExternal href={agmts[index].document} >View Document</Link>
                         </Box>
                         <Box  >
                         <Text>Duration : {(agmts[index].duration)}</Text>
